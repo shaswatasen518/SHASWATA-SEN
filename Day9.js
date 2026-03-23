@@ -2,57 +2,112 @@
 
 
 
-// let arr = [5, 2, 9, 1, 7, 3];
+let arr = [5, 2, 9, 1, 7, 10, 6];
 
+// Ascending
+for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+        }
+    }
+}
 
-// let ascending = [...arr].sort((a, b) => a - b);      // Ascending order ( if result neg- a or result pos-b)
-// console.log("Ascending Order:", ascending);
+console.log("Ascending:", arr);
 
+// Descending
+for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] < arr[j + 1]) {
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+        }
+    }
+}
 
-// let descending = [...arr].sort((a, b) => b - a);       // Descending order ( if result neg- b or result pos-a)
-// console.log("Descending Order:", descending);
-
+console.log("Descending:", arr);
 
 
 // 2) Write a program to count how many times each element appears in an array.
 
 
 
-// let arr = [1, 2, 2, 3, 1, 4, 2, 3];
+let arr = [1, 2, 2, 3, 1, 4, 2, 3];
 
-// let result = arr.reduce((acc, curr) => {
-//     acc[curr] = (acc[curr] || 0) + 1;
-//     return acc;
-// }, {});
+let result = arr.reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+}, {});
 
-// console.log(result);
+console.log(result);
+
+
+// 3)Write a program to flatten a nested array (e.g., [1, [2, [3]]] → [1,2,3]).
+
+let arr = [1, [2, [3, 4]], 5];
+let result = [];
+
+while (arr.length > 0) {
+    let item = arr.shift();
+
+    if (Array.isArray(item)) {
+        arr = item.concat(arr);
+    } else {
+        result.push(item);
+    }
+}
+
+console.log(result);
 
 
 
 // 5)Write a program that finds the intersection of two arrays. 
 
 
-// let arr1 = [1, 2, 3, 4, 5];
-// let arr2 = [3, 4, 5, 6, 7];
+//using Filter
 
-// let intersection = arr1.filter(element => arr2.includes(element));
+let arr1 = [1, 2, 3, 4];
+let arr2 = [3, 4, 5, 6];
 
-// console.log("Intersection:", intersection);
+let intersection = arr1.filter(item => arr2.includes(item));
+
+console.log("Intersection:", intersection);
+
+//using loop
+
+let arr1 = [1, 2, 3, 4];
+let arr2 = [3, 4, 5, 6];
+
+let result = [];
+
+for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+        if (arr1[i] === arr2[j]) {
+            result.push(arr1[i]);
+            break; 
+        }
+    }
+}
+
+console.log("Intersection:", result);
 
 
 
 // 6)Write a program to split an array into chunks of size n.
 
-// let arr = [1, 2, 3, 4, 5, 6, 7];
-// let n = 3;
+let arr = [1, 2, 3, 4, 5, 6, 7];
+let n = 3;
 
-// let chunks = [];
+let chunks = [];
 
-// for (let i = 0; i < arr.length; i ++) {                   //error occured
-//     chunks.push(arr.slice(i, i + n));
-// }
+for (let i = 0; i < arr.length; i ++) {                   //error occured
+    chunks.push(arr.slice(i, i + n));
+}
 
-// console.log(chunks);
+console.log(chunks);
 
 
 
@@ -60,11 +115,15 @@
 // 7)Write a program that squares each element of an array using map(). 
 
 
-// let arr = [1, 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5];
 
-// let squ = arr.map(num => num * num);
+let squ = arr.map(num => num * num);
 
-// console.log("Squared Array:", squ);
+console.log("Squared Array:", squ);
+
+
+
+
 
 
 

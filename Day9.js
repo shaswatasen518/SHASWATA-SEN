@@ -2,15 +2,15 @@
 
 
 
-// let arr = [5, 2, 9, 1, 7, 3];
+let arr = [5, 2, 9, 1, 7, 3];
 
 
-// let ascending = [...arr].sort((a, b) => a - b);      // Ascending order ( if result neg- a or result pos-b)
-// console.log("Ascending Order:", ascending);
+let ascending = [...arr].sort((a, b) => a - b);      // Ascending order ( if result neg- a or result pos-b)
+console.log("Ascending Order:", ascending);
 
 
-// let descending = [...arr].sort((a, b) => b - a);       // Descending order ( if result neg- b or result pos-a)
-// console.log("Descending Order:", descending);
+let descending = [...arr].sort((a, b) => b - a);       // Descending order ( if result neg- b or result pos-a)
+console.log("Descending Order:", descending);
 
 
 
@@ -18,47 +18,48 @@
 
 
 
-// let arr = [1, 2, 2, 3, 1, 4, 2, 3];
+let arr = [1, 2, 2, 3, 1, 4, 2, 3];
 
-// let result = arr.reduce((acc, curr) => {
-//     acc[curr] = (acc[curr] || 0) + 1;
-//     return acc;
-// }, {});
+let result = arr.reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+}, {});
 
-// console.log(result);
+console.log(result);
 
 
 // // 3)Write a program to flatten a nested array (e.g., [1, [2, [3]]] → [1,2,3]).
 
-// let arr = [1, [2, [3, 4]], 5];
-// let result = [];
 
-// while (arr.length > 0) {
-//     let item = arr.shift();
+let arr = [1, [2, [3, 4]], 5];
+let result = [];
 
-//     if (Array.isArray(item)) {
-//         arr = item.concat(arr);
-//     } else {
-//         result.push(item);
-//     }
-// }
+while (arr.length > 0) {
+    let item = arr.shift();
 
-// console.log(result);
+    if (Array.isArray(item)) {
+        arr = item.concat(arr);
+    } else {
+        result.push(item);
+    }
+}
+
+console.log(result);
 
 
 
 // 4)Write a program to rotate an array by k positions to the right.
 
 
-// function rotate(arr,k) {
-//     for(let i=0; i < k; i++) {
-//         let last = arr.pop();
-//         arr.unshift(last);
-//     }
-//     return arr;
-// }
+function rotate(arr,k) {
+    for(let i=0; i < k; i++) {
+        let last = arr.pop();
+        arr.unshift(last);
+    }
+    return arr;
+}
 
-// console.log(rotate([1,2,3,4],2))
+console.log(rotate([1,2,3,4],2))
 
 
 //another
@@ -89,47 +90,47 @@ console.log(rotate([1,2,3,4], 2))
 // // 5)Write a program that finds the intersection of two arrays. 
 
 
-// using Filter
+using Filter
 
-// let arr1 = [1, 2, 3, 4];
-// let arr2 = [3, 4, 5, 6];
+let arr1 = [1, 2, 3, 4];
+let arr2 = [3, 4, 5, 6];
 
-// let intersection = arr1.filter(item => arr2.includes(item));
+let intersection = arr1.filter(item => arr2.includes(item));
 
-// console.log("Intersection:", intersection);
+console.log("Intersection:", intersection);
 
 // using loop
 
-// let arr1 = [1, 2, 3, 4];
-// let arr2 = [3, 4, 5, 6];
+let arr1 = [1, 2, 3, 4];
+let arr2 = [3, 4, 5, 6];
 
-// let result = [];
+let result = [];
 
-// for (let i = 0; i < arr1.length; i++) {
-//     for (let j = 0; j < arr2.length; j++) {
-//         if (arr1[i] === arr2[j]) {
-//             result.push(arr1[i]);
-//             break; 
-//         }
-//     }
-// }
+for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+        if (arr1[i] === arr2[j]) {
+            result.push(arr1[i]);
+            break; 
+        }
+    }
+}
 
-// console.log("Intersection:", result);
+console.log("Intersection:", result);
 
 
 
 // // 6)Write a program to split an array into chunks of size n.
 
-// let arr = [1, 2, 3, 4, 5, 6, 7];
-// let n = 3;
+let arr = [1, 2, 3, 4, 5, 6, 7];
+let n = 3;
 
-// let chunks = [];
+let chunks = [];
 
-// for (let i = 0; i < arr.length; i += n) {                  
-//     chunks.push(arr.slice(i, i + n));
-// }
+for (let i = 0; i < arr.length; i += n) {                  
+    chunks.push(arr.slice(i, i + n));
+}
 
-// console.log(chunks);
+console.log(chunks);
 
 
 
@@ -137,9 +138,9 @@ console.log(rotate([1,2,3,4], 2))
 // // 7)Write a program that squares each element of an array using map(). 
 
 
-// let arr = [1, 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5];
 
-// let squ = arr.map(num => num * num);
+let squ = arr.map(num => num * num);
 
 // console.log("Squared Array:", squ);
 

@@ -84,7 +84,14 @@ console.log(checkSubstring("This is fun", "fun"));
 
 // 8. Write a program to count how many times a specific word occurs in a paragraph using split() 
 
+const countWord = (paragraph, word) => {
+    let parts = paragraph.split(word);
+    return parts.length - 1;
+};
 
+let text = "India is great. I love it because to all Indians, 'India' is not just a name—it is a feeling.";
+
+console.log("Occurrences:", countWord(text, "India"));
 
 
 

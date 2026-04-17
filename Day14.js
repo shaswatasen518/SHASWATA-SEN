@@ -1,27 +1,27 @@
 // 1. Write a program that swaps two variables using array destructuring. 
 
 
-// let a = 50;
-// let b = 200;
+let a = 50;
+let b = 200;
 
-// [a, b] = [b, a];
+[a, b] = [b, a];
 
-// console.log(a, b); 
+console.log(a, b); 
 
 
 
 // 2. Write a program that extracts the first two elements of an array and stores the rest in another array using destructuring. 
 
 
-// let arr = [1, 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5];
 
-// let first = arr[0];
-// let second = arr[1];
-// let rest = arr.slice(2);
+let first = arr[0];
+let second = arr[1];
+let rest = arr.slice(2);
 
-// console.log(first);  
-// console.log(second); 
-// console.log(rest);   
+console.log(first);  
+console.log(second); 
+console.log(rest);   
 
 
 
@@ -44,16 +44,16 @@
 
 
 
-// let person = {
-//   Name: "Shaswata",
-//   Age: 26,
-//   City: "Purulia"
-// };
+let person = {
+  Name: "Shaswata",
+  Age: 26,
+  City: "Purulia"
+};
 
-// let { Name, Age } = person;
+let { Name, Age } = person;
 
-// console.log(Name); 
-// console.log(Age); 
+console.log(Name); 
+console.log(Age); 
 
 
 
@@ -63,11 +63,11 @@
 
 
 
-// function values({ name, age = 28 }) {
-//   console.log(name, age);
-// }
+function values({ name, age = 28 }) {
+  console.log(name, age);
+}
 
-// values({ name: "Nill" }); 
+values({ name: "Nill" }); 
 
 
 
@@ -77,19 +77,19 @@
 
 
 
-// let employee = {
-//   name: "Suman",
-//   address: {
-//     city: "Durgapur",
-//     pin: 713201
-//   }
-// };
+let employee = {
+  name: "Suman",
+  address: {
+    city: "Durgapur",
+    pin: 713201
+  }
+};
 
-// let {
-//   address: { city }
-// } = employee;
+let {
+  address: { city }
+} = employee;
 
-// console.log(city);
+console.log(city);
 
 
 
@@ -98,13 +98,13 @@
 
 
 
-// function printDetails({ name, age }) {
-//   console.log(`Name: ${name}, Age: ${age}`);
-// }
+function printDetails({ name, age }) {
+  console.log(`Name: ${name}, Age: ${age}`);
+}
 
-// let user = { name: "Bubai", age: 22 };
+let user = { name: "Bubai", age: 22 };
 
-// printDetails(user);
+printDetails(user);
 
 
 

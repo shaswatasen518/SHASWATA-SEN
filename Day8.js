@@ -1,26 +1,35 @@
 // 1)Write a program that finds the largest and smallest elements in an array. 
 
 
-let arr = [12, 45, 7, 23, 56, 3, 19];
+// let arr = [12, 45, 7, 23, 56, 3, 19];
 
-let largest = Math.max(...arr);      //spread opreator 
-let smallest = Math.min(...arr);
+// let largest = Math.max(...arr);      //spread opreator 
+// let smallest = Math.min(...arr);
 
-console.log("Largest element:", largest);
-console.log("Smallest element:", smallest);
+// console.log("Largest element:", largest);
+// console.log("Smallest element:", smallest);
 
 
 // 2) Write a program that removes all duplicate elements from an array.
 
 
-Using Filter
-let arr = [1, 2, 3, 2, 4, 5, 3, 6];
+//Using Filter
+// let arr = [1, 2, 3, 2, 4, 5, 3, 6];
 
-let uniqueArray = arr.filter((value, index, self) => {
-    return self.indexOf(value) === index;
-});
+// let uniqueArray = arr.filter((value, index, self) => {
+//     return self.indexOf(value) === index;
+// });
 
-console.log("Array without duplicates:", uniqueArray);
+// console.log("Array without duplicates:", uniqueArray);
+
+
+//using Set
+
+// let arr = [1, 2, 3, 2, 4, 5, 3, 6];   
+
+// let uniqueArray = [...new Set(arr)];    //set stores only unique values.
+
+// console.log("Array without duplicates:", uniqueArray);
 
 
 
@@ -29,95 +38,66 @@ console.log("Array without duplicates:", uniqueArray);
 
 
 
-let arr = [1, 2, 3, 4, 5];
-let reversed = [];
+// let arr = [1, 2, 3, 4, 5];
+// let reversed = [];
 
-for (let i = arr.length - 1; i >= 0; i--) {
-    reversed.push(arr[i]);            
-}
+// for (let i = arr.length - 1; i >= 0; i--) {
+//     reversed.push(arr[i]);            
+// }
 
-console.log("Reversed Array:", reversed);
+// console.log("Reversed Array:", reversed);
 
 
 // 4) Write a program to find the sum and average of all numbers in an array
 
 
-let arr = [30, 50, 80, 40, 50];
-let sum = 0;
+// let arr = [30, 50, 80, 40, 50];
+// let sum = 0;
 
-for (let i = 0; i < arr.length; i++) {
-    sum = sum + arr[i];
-}
+// for (let i = 0; i < arr.length; i++) {
+//     sum = sum + arr[i];
+// }
 
-let average = sum / arr.length;
+// let average = sum / arr.length;
 
-console.log("Sum:", sum);
-console.log("Average:", average);
+// console.log("Sum:", sum);
+// console.log("Average:", average);
 
 
 
 // 5) Write a program to find the index of the first occurrence of a given element in an array.
 
-let arr = [50, 20, 35, 40, 22, 68];
-let element = 22;
+// let arr = [50, 20, 35, 40, 22, 68];
+// let element = 22;
 
-let index = arr.indexOf(element);
+// let index = arr.indexOf(element);
 
-console.log("First occurrence index:", index);
-
-
-// 6) Write a program that joins all elements of an array into a single string separated by commas. 
+// console.log("First occurrence index:", index);
 
 
-let arr = ["I", "am", "a", "Student"];
-
-let a = arr.join(" ");
-
-console.log("Result:", a);
+//6) Write a program that joins all elements of an array into a single string separated by commas. 
 
 
-// 7) Write a program to merge two arrays and remove duplicates. 
+// let arr = ["I", "am", "a", "Student"];
 
-Using Filter 
+// let a = arr.join(" ");
 
-
-
-let arr1 = [1, 2, 3, 4,5];
-let arr2 = [3, 4, 5, 6];
-
-let merged = arr1.concat(arr2).filter((item, index, arr) => {
-    return arr.indexOf(item) === index;
-});
-
-console.log(merged);
+// console.log("Result:", a);
 
 
-using reduce
+//7) Write a program to merge two arrays and remove duplicates. 
 
 
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [3, 4, 5, 6, 7];
-
-const merged = arr1.concat(arr2).reduce((acc, curr) => {
-  if (!acc.includes(curr)) {
-    acc.push(curr);
-  }
-  return acc;
-}, []);
-console.log(merged);
 
 
 
 // 8) Write a program to find all even numbers from an array using filter(). 
 
 
-let arr = [1,2,3,4,5,6,7,8,9,10];
+// let arr = [1,2,3,4,5,6,7,8,9,10];
 
-let evenNumbers = arr.filter(num => num % 2 === 0);  // num is using for current element of the arry
+// let evenNumbers = arr.filter(num => num % 2 === 0);  // num is using for current element of the arry
 
-console.log(evenNumbers);
-
-
-
+// console.log(evenNumbers);
 
 

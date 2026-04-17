@@ -87,8 +87,13 @@
 
 //7) Write a program to merge two arrays and remove duplicates. 
 
+// let arr1 = [1, 2, 3, 4];
+// let arr2 = [3, 4, 5, 6];
 
 
+// let result = [...new Set([...arr1, ...arr2])];
+
+// console.log(result);
 
 
 // 8) Write a program to find all even numbers from an array using filter(). 

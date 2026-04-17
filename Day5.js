@@ -65,11 +65,39 @@
 // 6. Demonstrate first-class functions by storing multiple functions in an array and calling them one by one. 
 
 
+// function add(a, b) {
+//     console.log( a + b);
+// }
+
+// function multiply(a, b) {
+//     console.log( a * b);
+// }
+
+// function subtract(a, b) {
+//     console.log( a - b);
+// }
+
+
+// let operations = [add, multiply, subtract];                // Store functions in an array
+
+
+// for (let i = 0; i < operations.length; i++) {             // Call each function with arguments
+//     operations[i](10, 5);
+// }
+
+
+
 
 
 // 7. Write a function that takes two numbers and a callback function, and applies the callback to those numbers (e.g., addition, subtraction). 
 
 
+// function calculate(a, b, callback) {
+//     return callback(a, b);
+// }
+
+// console.log(calculate(20, 5, (x, y) => x + y));                            // addition
+// console.log(calculate(60, 5, (x, y) => x - y));                           // subtraction
 
 
 

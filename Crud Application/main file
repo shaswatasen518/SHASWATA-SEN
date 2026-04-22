@@ -1,1 +1,273 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CRUD with LocalStorage</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#1d2630;
+}
+
+.container{
+    width:80%;
+    margin:40px auto;
+    display:flex;
+    gap:20px;
+    text-align: center;
+}
+
+form{
+    flex:1;
+    background:rgb(136, 174, 239);
+    padding:30px;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    background:#fff;
+    border-collapse: collapse;
+    
+}
+.table-container{
+    flex:2;
+    width:100%
+    
+}
+
+.table-title{
+    text-align:center;
+    margin-bottom:15px;
+    color:#52e0dc;
+    font-size:22px;
+}
+
+
+th, td{
+    border:1px solid black;
+    padding:15px;
+    text-align:center;
+    
+}
+
+th{
+    background:orange;
+    color:black;
+}
+
+input{
+    width:96%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:9px;
+}
+
+.btn{
+    padding:6px 15px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    color:black;
+    cursor:pointer;
+   font-size: medium;
+}
+
+
+.green{
+    background-color:#1ce893;
+}
+
+.green:hover{
+    background-color:#198754;
+}
+
+
+.red{
+    background-color:#dc3545;
+}
+
+.red:hover{
+    background-color:#c82333;
+}
+.search{
+    margin-bottom:10px;
+    border-radius:10px;
+    background:rgb(136, 174, 239);
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- FORM -->
+    <form onsubmit="onFormSubmit(event)">
+        <h2><strong>CRUD APPLICATION</strong></h2>
+
+        <input type="text" id="productCode" placeholder="Product Code" required>
+        <input type="text" id="product" placeholder="Product Name" required>
+        <input type="number" id="qty" placeholder="Quantity" required>
+        <input type="number" id="price" placeholder="Price" required>
+
+        <button type="submit" class="btn green">Save</button>
+        <button type="reset" class="btn red" onclick="resetForm()">Reset</button> 
+    </form>
+
+    <!-- TABLE -->
+    <div class="table-container">
+
+    <h2 class="table-title"><strong>Stored Product Data</strong></h2>
+
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchProducts()">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="storeList"></tbody>
+    </table>
+
+   </div>
+
+</div>
+
+<script>
+
+let editID = null;
+
+// LOAD DATA
+window.onload = function(){
+    displayProducts();
+}
+
+// FORM SUBMIT
+function onFormSubmit(e){
+    e.preventDefault();
+
+    let product = {
+        id: editID || Date.now(),
+        code: document.getElementById("productCode").value,
+        name: document.getElementById("product").value,
+        qty: document.getElementById("qty").value,
+        price: document.getElementById("price").value
+    };
+
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    if(editID){
+        products = products.map(p => p.id === editID ? product : p);
+        alert("Product Updated Successfully!");
+        editID = null;
+    } else {
+        products.push(product);
+        alert("Product Added Successfully!");
+    }
+
+    localStorage.setItem("products", JSON.stringify(products));
+
+    resetForm();
+    displayProducts();
+}
+
+// DISPLAY
+function displayProducts(filtered = null){
+    let products = filtered || JSON.parse(localStorage.getItem("products")) || [];
+
+    let tbody = document.getElementById("storeList");
+    tbody.innerHTML = "";
+     
+    // if no data Exist 
+    if(products.length === 0){
+        let row = `
+            <tr>
+                 <td colspan="5" style="text-align:center; color:red; font-size:18px;">
+                    No Data Found
+                </td>
+            </tr>
+        `;
+        tbody.innerHTML = row;
+        return;
+    }
+    // if Data Exist
+    products.forEach(p=>{
+        let row = `
+        <tr>
+            <td>${p.code}</td>
+            <td>${p.name}</td>
+            <td>${p.qty}</td>
+            <td>${p.price}</td>
+            <td>
+                <button class="btn green" onclick="editProduct(${p.id})">Edit</button>
+               <button class="btn red" onclick="deleteProduct(${p.id})">Delete</button>
+
+            </td>
+        </tr>
+        `;
+        tbody.innerHTML += row;
+    });
+}
+
+// EDIT
+function editProduct(id){
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+    let p = products.find(p => p.id === id);
+
+    document.getElementById("productCode").value = p.code;
+    document.getElementById("product").value = p.name;
+    document.getElementById("qty").value = p.qty;
+    document.getElementById("price").value = p.price;
+
+    editID = id;
+}
+
+// DELETE
+function deleteProduct(id){
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    products = products.filter(p => p.id !== id);
+
+    localStorage.setItem("products", JSON.stringify(products));
+
+    alert("Product Deleted Successfully!");
+    
+    displayProducts();
+}
+
+// SEARCH
+function searchProducts(){
+    let value = document.getElementById("searchInput").value.toLowerCase();
+
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    let filtered = products.filter(p =>
+        p.name.toLowerCase().includes(value) ||
+        p.code.toLowerCase().includes(value)
+    );
+
+    displayProducts(filtered);
+}
+
+// RESET
+function resetForm(){
+    document.getElementById("productCode").value = "";
+    document.getElementById("product").value = "";
+    document.getElementById("qty").value = "";
+    document.getElementById("price").value = "";
+    editID = null;
+}
+
+</script>
+
+</body>
+</html>

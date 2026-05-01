@@ -63,7 +63,7 @@ body {
 
 /* CARD */
 .card {
-    background-color: #a659eec2;
+    background-color:#3a3d5c;
     padding: 22px;
     border-radius: 15px;
     margin-bottom: 20px;
@@ -74,7 +74,8 @@ body {
 
 .card p {
     font-size: 14px;
-    color: #030303;
+    color:#edf2f4;
+    font-weight: bold;
 }
 
 .card h2 {
@@ -86,7 +87,8 @@ body {
     font-size: 18px;
     font-weight: 500;
     margin: 5px 0;
-    color: rgb(33 217 230);
+    color: #e85026;
+    font-weight: bold;
 }
 /* WEATHER GRID */
 .weather-data {
@@ -221,7 +223,6 @@ body {
     margin-top: 15px;
 }
 .card .card-head p strong{
-    color: rgb(15, 5, 1);
     font-size: large;
     font-size: 20px;
 }

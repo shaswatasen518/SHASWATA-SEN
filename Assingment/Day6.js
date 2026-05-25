@@ -2,10 +2,26 @@
 
 // 1. Write a program to check whether a given string is a palindrome using built-in string methods. 
 
+function checkPalindrome(str) {
 
+    let original = str.toLowerCase();
+
+    let reversed = original.split("").reverse().join("");
+
+    console.log(original === reversed
+        ? "Palindrome"
+        : "Not a Palindrome");
+}
+
+checkPalindrome("Madam");
 
 // 2. Create a program that counts the number of vowels and consonants in a string. 
 
+let a = 'Hello World';
+
+
+let vowels = 0;
+let consonants = 0;
 
 
 

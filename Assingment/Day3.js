@@ -72,24 +72,40 @@
 
 // 6. Demonstrate the use of the nullish coalescing operator (??) with multiple fallback values. 
 
+let value1 = null;
+let value2 = undefined;
+let value3 = "Hello";
+let defaultval = "Default";
 
+let result = value1 ?? value2 ?? value3 ?? defaultval;
 
-
-
-
-
-
+console.log(result);
 
 
 // 7. Write a program that uses bitwise operators to check if a given number is a power of 2. 
 
 
+function isPowerof2(num) {
+    if (num > 0 && (num & (num - 1))===0) {
+        console.log(num + "is a Power of 2");
+    }
+}
 
+isPowerof2(8); 
+isPowerof2(10); 
 
 
 
 
 // 8. Write a program that calculates the area of a rectangle only if both length and breadth are greater than 0, using short-circuit evaluation (&&). 
+
+let length = 10;
+let breadth = 5;
+
+if (length > 0 && breadth > 0) {
+    console.log("Area:", length * breadth);
+}
+
 
 
 

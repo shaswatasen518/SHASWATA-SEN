@@ -25,31 +25,25 @@
 
 
 
+function checkAnagram(str1, str2) {
 
+    let s1 = str1.toLowerCase().split("").sort().join("");
+    let s2 = str2.toLowerCase().split("").sort().join("");
 
+    console.log(s1 === s2 ? "Anagram" : "Not Anagram");
+}
 
-
-
-
-
-
+checkAnagram("listen", "silent");
 
 
 // 4. Write a program to mask the last 4 digits of a phone number (e.g., 9876543210 → ******3210). 
 
 
+let a = "9768913891";
 
+let b = "***" + a.slice(-4);
 
-
-
-
-
-
-
-
-
-
-
+console.log(b);
 
 
 
@@ -84,18 +78,15 @@
 // 7. Write a program to convert a string into title case (every word starts with uppercase). 
 
 
+const toTitleCase = (str) =>
+    str
+        .split(" ")
+        .map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join(" ");
 
-
-
-
-
-
-
-
-
-
-
-
+console.log(toTitleCase("hello world javascript"));
 
 
 

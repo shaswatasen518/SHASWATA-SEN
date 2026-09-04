@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Teachers' Day</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        #ff9933,
+        #ff5f6d,
+        #845ec2,
+        #2c73d2
+      );
+      background-size: 400% 400%;
+      animation: bgAnimation 10s ease infinite;
+      color: white;
+    }
+
+    @keyframes bgAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      padding: 30px;
+      width: 90%;
+      max-width: 850px;
+    }
+
+    .teacher-icon {
+      font-size: 85px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 85px);
+      margin: 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ffd700,
+        0 0 40px #ff8c00;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        transform: scale(1);
+        text-shadow:
+          0 0 10px #fff,
+          0 0 20px #ffd700,
+          0 0 30px #ff8c00;
+      }
+
+      to {
+        transform: scale(1.05);
+        text-shadow:
+          0 0 20px #fff,
+          0 0 30px #ffff00,
+          0 0 50px #ff4500;
+      }
+    }
+
+    h2 {
+      font-size: clamp(24px, 5vw, 46px);
+      margin-bottom: 20px;
+      color: #fff6a9;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .message {
+      font-size: 20px;
+      line-height: 1.7;
+      margin: 20px auto 30px;
+      max-width: 650px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button {
+      border: none;
+      padding: 15px 32px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #5b2c00;
+      background: linear-gradient(45deg, #ffd700, #fff59d);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Balloons */
+
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 65px;
+      height: 80px;
+      border-radius: 50%;
+      animation: floatBalloon linear infinite;
+      opacity: 0.9;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.8);
+      top: 78px;
+      left: 50%;
+    }
+
+    @keyframes floatBalloon {
+      from {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(-125vh) rotate(15deg);
+      }
+    }
+
+    .b1 {
+      left: 5%;
+      background: #ff4d6d;
+      animation-duration: 10s;
+    }
+
+    .b2 {
+      left: 18%;
+      background: #ffd60a;
+      animation-duration: 12s;
+      animation-delay: 2s;
+    }
+
+    .b3 {
+      left: 75%;
+      background: #00f5d4;
+      animation-duration: 11s;
+      animation-delay: 1s;
+    }
+
+    .b4 {
+      left: 90%;
+      background: #9b5de5;
+      animation-duration: 13s;
+      animation-delay: 3s;
+    }
+
+    .b5 {
+      left: 48%;
+      background: #00bbf9;
+      animation-duration: 14s;
+      animation-delay: 5s;
+    }
+
+    /* Flowers */
+
+    .flower {
+      position: absolute;
+      font-size: 32px;
+      animation: flowerFall linear infinite;
+      top: -50px;
+    }
+
+    @keyframes flowerFall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(720deg);
+      }
+    }
+
+    /* Confetti */
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -20px;
+      z-index: 5;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 16px;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 600px) {
+      .message {
+        font-size: 16px;
+      }
+
+      .teacher-icon {
+        font-size: 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Balloons -->
+
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+  <div class="balloon b5"></div>
+
+  <!-- Main Content -->
+
+  <div class="container">
+
+    <div class="teacher-icon">👨‍🏫📚👩‍🏫</div>
+
+    <h1>Happy</h1>
+
+    <h2>Teachers' Day! 🎉</h2>
+
+    <div class="message">
+      🌸 To all the wonderful teachers who inspire us,
+      guide us and help us become better every day —
+      thank you for your patience, dedication and endless support.
+      <br><br>
+      <strong>Happy Teachers' Day! ❤️</strong>
+    </div>
+
+    <button onclick="celebrate()">
+      🎊 Celebrate Now
+    </button>
+
+    <div class="footer">
+      🌹 With Respect, Gratitude & Love 🌹
+    </div>
+
+  </div>
+
+  <script>
+
+    /* -------------------------
+       Confetti Animation
+    -------------------------- */
+
+    function createConfetti() {
+
+      const colors = [
+        "#ff0000",
+        "#ffd700",
+        "#00ffcc",
+        "#ffffff",
+        "#ff69b4",
+        "#00bfff",
+        "#9b5de5"
+      ];
+
+      const confetti = document.createElement("div");
+
+      confetti.classList.add("confetti");
+
+      confetti.style.left =
+        Math.random() * window.innerWidth + "px";
+
+      confetti.style.background =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      confetti.style.width =
+        Math.random() * 8 + 5 + "px";
+
+      confetti.style.height =
+        Math.random() * 8 + 5 + "px";
+
+      confetti.style.animationDuration =
+        Math.random() * 3 + 2 + "s";
+
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 5000);
+    }
+
+
+    /* Automatic Confetti */
+
+    setInterval(createConfetti, 150);
+
+
+    /* -------------------------
+       Falling Flowers
+    -------------------------- */
+
+    const flowers = [
+      "🌸",
+      "🌹",
+      "🌼",
+      "🌺",
+      "🌻"
+    ];
+
+    function createFlower() {
+
+      const flower = document.createElement("div");
+
+      flower.classList.add("flower");
+
+      flower.innerHTML =
+        flowers[Math.floor(Math.random() * flowers.length)];
+
+      flower.style.left =
+        Math.random() * 100 + "vw";
+
+      flower.style.animationDuration =
+        Math.random() * 5 + 5 + "s";
+
+      flower.style.fontSize =
+        Math.random() * 20 + 20 + "px";
+
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 10000);
+    }
+
+    setInterval(createFlower, 700);
+
+
+    /* -------------------------
+       Celebration Button
+    -------------------------- */
+
+    function celebrate() {
+
+      for (let i = 0; i < 150; i++) {
+
+        setTimeout(() => {
+
+          createConfetti();
+
+        }, i * 15);
+
+      }
+
+      const message =
+        document.querySelector(".message");
+
+      message.innerHTML = `
+        🎉 <strong>Happy Teachers' Day!</strong> 🎉
+        <br><br>
+        Thank you for teaching us not only lessons from books,
+        but also lessons for life.
+        <br><br>
+        🌹 You inspire. You guide. You make a difference. 🌹
+      `;
+    }
+
+  </script>
+
+</body>
+</html>
